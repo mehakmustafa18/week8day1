@@ -11,19 +11,23 @@ app.use(cors({ origin: '*' }));
 app.use(express.json({ limit: '2mb' }));
 
 // ---- Serve frontend static files ----
-// In Vercel, root is the project root (one level up from backend/)
-const frontendPath = path.join(__dirname, '..');
-app.use(express.static(frontendPath));
+// Only serve locally — on Vercel, static files are handled by @vercel/static
+if (process.env.NODE_ENV !== 'production') {
+  const frontendPath = path.join(__dirname, '..');
+  app.use(express.static(frontendPath));
+}
 
 // ---- API Routes ----
 app.use('/api/auth',    require('./routes/auth'));
 app.use('/api/resumes', require('./routes/resumes'));
 app.use('/api/ai',      require('./routes/ai'));
 
-// ---- Catch-all: serve index.html ----
-app.get('/{*path}', (req, res) => {
-  res.sendFile(path.join(frontendPath, 'index.html'));
-});
+// ---- Catch-all: serve index.html (local only) ----
+if (process.env.NODE_ENV !== 'production') {
+  app.get('/{*path}', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'index.html'));
+  });
+}
 
 // ---- Connect MongoDB & Start (local only) ----
 // Vercel handles the server lifecycle, so we only listen locally
