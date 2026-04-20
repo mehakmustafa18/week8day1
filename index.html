@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CVCraft — Professional Resume Builder</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&family=Raleway:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<!-- ===== LANDING PAGE ===== -->
+<div id="page-landing" class="page active">
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">CV</div>
+        <span class="logo-text"><span class="logo-bold">CV</span>Craft</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#templates" class="nav-link">Templates</a>
+        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme" id="themeToggleNav">🌙</button>
+        <button class="btn-nav-login" onclick="showPage('login')">Log In</button>
+        <button class="btn-nav-signup" onclick="showPage('signup')">Get Started</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">✦ Trusted by 50,000+ professionals</div>
+    <h1 class="hero-title">Build a Resume That<br><span class="hero-accent">Gets You Hired</span></h1>
+    <p class="hero-sub">Professional templates, real-time preview, and one-click PDF export. Create your standout resume in minutes.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="showPage('signup')">Create My Resume — Free</button>
+      <button class="btn-ghost" onclick="showPage('login')">I already have an account</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">6</span><span class="stat-label">Templates</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num">12</span><span class="stat-label">Color Themes</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-num">PDF</span><span class="stat-label">Export</span></div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="features-inner">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Real-time Preview</h3>
+          <p>See every change instantly as you type. No guessing, no refreshing.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>6 Pro Templates</h3>
+          <p>Sidebar, Classic, Minimal, Modern, Executive, Creative — pick your style.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📄</div>
+          <h3>One-Click PDF</h3>
+          <p>Export a pixel-perfect PDF ready to send to any employer.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>ATS Friendly</h3>
+          <p>Clean, structured layouts that pass applicant tracking systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tpl-showcase" id="templates">
+    <div class="showcase-inner">
+      <div class="showcase-label">Template Gallery</div>
+      <h2 class="showcase-title">Choose Your Style</h2>
+      <div class="showcase-grid">
+        <div class="showcase-card" style="--sc:#1a365d">
+          <div class="sc-preview sc-sidebar"></div>
+          <div class="sc-name">Sidebar</div>
+        </div>
+        <div class="showcase-card" style="--sc:#7b1c1c">
+          <div class="sc-preview sc-classic"></div>
+          <div class="sc-name">Classic</div>
+        </div>
+        <div class="showcase-card" style="--sc:#0f4c5c">
+          <div class="sc-preview sc-minimal"></div>
+          <div class="sc-name">Minimal</div>
+        </div>
+        <div class="showcase-card" style="--sc:#312e81">
+          <div class="sc-preview sc-modern"></div>
+          <div class="sc-name">Modern</div>
+        </div>
+        <div class="showcase-card" style="--sc:#4a1942">
+          <div class="sc-preview sc-executive"></div>
+          <div class="sc-name">Executive</div>
+        </div>
+        <div class="showcase-card" style="--sc:#7c3d12">
+          <div class="sc-preview sc-creative"></div>
+          <div class="sc-name">Creative</div>
+        </div>
+      </div>
+      <button class="btn-primary" style="margin-top:40px" onclick="showPage('signup')">Start Building Now</button>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="logo-mark" style="width:28px;height:28px;font-size:11px">CV</div>
+        <span class="logo-text" style="font-size:16px"><span class="logo-bold">CV</span>Craft</span>
+      </div>
+      <p class="footer-copy">© 2026 CVCraft. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===== LOGIN PAGE ===== -->
+<div id="page-login" class="page">
+  <div class="auth-layout">
+    <div class="auth-left">
+      <div class="auth-brand" onclick="showPage('landing')" style="cursor:pointer">
+        <div class="logo-mark">CV</div>
+        <span class="logo-text"><span class="logo-bold">CV</span>Craft</span>
+      </div>
+      <h2 class="auth-tagline">Your career story<br>starts here.</h2>
+      <div class="auth-features">
+        <div class="af-item">✓ 6 professional templates</div>
+        <div class="af-item">✓ Real-time live preview</div>
+        <div class="af-item">✓ One-click PDF export</div>
+        <div class="af-item">✓ ATS-optimized layouts</div>
+      </div>
+    </div>
+    <div class="auth-right">
+      <button class="theme-toggle auth-theme-btn" onclick="toggleTheme()" title="Toggle theme" id="themeToggleLogin">🌙</button>
+      <div class="auth-card">
+        <h2 class="auth-title">Welcome back</h2>
+        <p class="auth-sub">Log in to continue building your resume</p>
+        <div id="login-error" class="auth-error" style="display:none"></div>
+        <div class="fg">
+          <label class="fl">Email</label>
+          <input class="fi" type="email" id="login-email" placeholder="you@example.com">
+        </div>
+        <div class="fg">
+          <label class="fl">Password</label>
+          <input class="fi" type="password" id="login-pass" placeholder="••••••••">
+        </div>
+        <button class="btn-auth" onclick="doLogin()">Log In</button>
+        <div class="auth-divider"><span>or</span></div>
+        <button class="btn-auth-ghost" onclick="doGuestLogin()">Continue as Guest</button>
+        <p class="auth-switch">Don't have an account? <a onclick="showPage('signup')">Sign up free</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SIGNUP PAGE ===== -->
+<div id="page-signup" class="page">
+  <div class="auth-layout">
+    <div class="auth-left">
+      <div class="auth-brand" onclick="showPage('landing')" style="cursor:pointer">
+        <div class="logo-mark">CV</div>
+        <span class="logo-text"><span class="logo-bold">CV</span>Craft</span>
+      </div>
+      <h2 class="auth-tagline">Land your dream<br>job faster.</h2>
+      <div class="auth-features">
+        <div class="af-item">✓ Free forever plan</div>
+        <div class="af-item">✓ No credit card needed</div>
+        <div class="af-item">✓ Ready in 5 minutes</div>
+        <div class="af-item">✓ Download unlimited PDFs</div>
+      </div>
+    </div>
+    <div class="auth-right">
+      <button class="theme-toggle auth-theme-btn" onclick="toggleTheme()" title="Toggle theme" id="themeToggleSignup">🌙</button>
+      <div class="auth-card">
+        <h2 class="auth-title">Create your account</h2>
+        <p class="auth-sub">Start building your professional resume today</p>
+        <div id="signup-error" class="auth-error" style="display:none"></div>
+        <div class="fg">
+          <label class="fl">Full Name</label>
+          <input class="fi" type="text" id="signup-name" placeholder="John Smith">
+        </div>
+        <div class="fg">
+          <label class="fl">Email</label>
+          <input class="fi" type="email" id="signup-email" placeholder="you@example.com">
+        </div>
+        <div class="fg">
+          <label class="fl">Password</label>
+          <input class="fi" type="password" id="signup-pass" placeholder="Min. 6 characters">
+        </div>
+        <button class="btn-auth" onclick="doSignup()">Create Account</button>
+        <div class="auth-divider"><span>or</span></div>
+        <button class="btn-auth-ghost" onclick="doGuestLogin()">Continue as Guest</button>
+        <p class="auth-switch">Already have an account? <a onclick="showPage('login')">Log in</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DASHBOARD PAGE ===== -->
+<div id="page-dashboard" class="page">
+  <div class="dash-layout">
+    <aside class="dash-sidebar">
+      <div class="dash-logo">
+        <div class="logo-mark">CV</div>
+        <span class="logo-text"><span class="logo-bold">CV</span>Craft</span>
+      </div>
+      <nav class="dash-nav">
+        <div class="dash-nav-item active" onclick="setDashTab('resumes')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+          My Resumes
+        </div>
+        <div class="dash-nav-item" onclick="setDashTab('templates')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/></svg>
+          Templates
+        </div>
+        <div class="dash-nav-item" onclick="setDashTab('tips')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          Tips
+        </div>
+      </nav>
+      <div class="dash-user">
+        <div class="dash-avatar" id="dashAvatar">J</div>
+        <div class="dash-user-info">
+          <div class="dash-user-name" id="dashUserName">Guest</div>
+          <div class="dash-user-role">Free Plan</div>
+        </div>
+        <button class="theme-toggle dash-theme-btn" onclick="toggleTheme()" title="Toggle theme" id="themeToggleDash">🌙</button>
+        <button class="dash-logout" onclick="doLogout()" title="Logout">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/></svg>
+        </button>
+      </div>
+    </aside>
+
+    <main class="dash-main">
+      <!-- RESUMES TAB -->
+      <div id="dash-tab-resumes" class="dash-tab active">
+        <div class="dash-header">
+          <div>
+            <h1 class="dash-title">My Resumes</h1>
+            <p class="dash-subtitle">Manage and edit your resumes</p>
+          </div>
+          <button class="btn-primary" onclick="openBuilder()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            New Resume
+          </button>
+        </div>
+        <div class="resume-cards" id="resumeCards">
+          <!-- populated by JS -->
+        </div>
+      </div>
+
+      <!-- TEMPLATES TAB -->
+      <div id="dash-tab-templates" class="dash-tab">
+        <div class="dash-header">
+          <div>
+            <h1 class="dash-title">Templates</h1>
+            <p class="dash-subtitle">Choose a template to get started</p>
+          </div>
+        </div>
+        <div class="tpl-cards">
+          <div class="tpl-card" onclick="openBuilderWithTemplate('sidebar')">
+            <div class="tpl-card-preview tpl-prev-sidebar"></div>
+            <div class="tpl-card-info">
+              <div class="tpl-card-name">Sidebar</div>
+              <div class="tpl-card-desc">Clean two-column layout with sidebar</div>
+            </div>
+            <button class="tpl-card-btn">Use Template</button>
+          </div>
+          <div class="tpl-card" onclick="openBuilderWithTemplate('classic')">
+            <div class="tpl-card-preview tpl-prev-classic"></div>
+            <div class="tpl-card-info">
+              <div class="tpl-card-name">Classic</div>
+              <div class="tpl-card-desc">Traditional serif-based professional layout</div>
+            </div>
+            <button class="tpl-card-btn">Use Template</button>
+          </div>
+          <div class="tpl-card" onclick="openBuilderWithTemplate('minimal')">
+            <div class="tpl-card-preview tpl-prev-minimal"></div>
+            <div class="tpl-card-info">
+              <div class="tpl-card-name">Minimal</div>
+              <div class="tpl-card-desc">Clean, whitespace-focused modern design</div>
+            </div>
+            <button class="tpl-card-btn">Use Template</button>
+          </div>
+          <div class="tpl-card" onclick="openBuilderWithTemplate('modern')">
+            <div class="tpl-card-preview tpl-prev-modern"></div>
+            <div class="tpl-card-info">
+              <div class="tpl-card-name">Modern</div>
+              <div class="tpl-card-desc">Bold header with skill progress bars</div>
+            </div>
+            <button class="tpl-card-btn">Use Template</button>
+          </div>
+          <div class="tpl-card" onclick="openBuilderWithTemplate('executive')">
+            <div class="tpl-card-preview tpl-prev-executive"></div>
+            <div class="tpl-card-info">
+              <div class="tpl-card-name">Executive</div>
+              <div class="tpl-card-desc">Elegant serif layout for senior roles</div>
+            </div>
+            <button class="tpl-card-btn">Use Template</button>
+          </div>
+          <div class="tpl-card" onclick="openBuilderWithTemplate('creative')">
+            <div class="tpl-card-preview tpl-prev-creative"></div>
+            <div class="tpl-card-info">
+              <div class="tpl-card-name">Creative</div>
+              <div class="tpl-card-desc">Dark header with accent colors</div>
+            </div>
+            <button class="tpl-card-btn">Use Template</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIPS TAB -->
+      <div id="dash-tab-tips" class="dash-tab">
+        <div class="dash-header">
+          <div>
+            <h1 class="dash-title">Resume Tips</h1>
+            <p class="dash-subtitle">Expert advice to make your resume stand out</p>
+          </div>
+        </div>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-num">01</div>
+            <h3>Tailor for each job</h3>
+            <p>Customize your resume for every application. Mirror keywords from the job description to pass ATS filters.</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-num">02</div>
+            <h3>Quantify achievements</h3>
+            <p>Use numbers wherever possible. "Increased sales by 35%" is far stronger than "improved sales performance".</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-num">03</div>
+            <h3>Keep it to one page</h3>
+            <p>Unless you have 10+ years of experience, aim for a single page. Recruiters spend ~7 seconds on first scan.</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-num">04</div>
+            <h3>Strong summary first</h3>
+            <p>Your professional summary is prime real estate. Make it punchy, specific, and tailored to the role.</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-num">05</div>
+            <h3>Use action verbs</h3>
+            <p>Start bullet points with strong verbs: Led, Built, Designed, Launched, Reduced, Managed, Delivered.</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-num">06</div>
+            <h3>Proofread carefully</h3>
+            <p>Typos kill applications. Read it backwards, use spell-check, and have a friend review it too.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ===== BUILDER PAGE ===== -->
+<div id="page-builder" class="page">
+  <div class="app-layout">
+    <aside class="editor-panel" id="editorPanel">
+      <div class="editor-logo">
+        <button class="btn-back" onclick="showPage('dashboard')" title="Back to Dashboard">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+        </button>
+        <div class="logo-mark">CV</div>
+        <div class="logo-text"><span class="logo-bold">CV</span>Craft</div>
+      </div>
+      <div class="template-picker-wrap">
+        <div class="picker-label">Template</div>
+        <div class="template-grid" id="templateGrid"></div>
+      </div>
+      <div class="theme-picker-wrap">
+        <div class="picker-label">Color</div>
+        <div class="color-dots" id="colorDots"></div>
+      </div>
+      <div class="section-tabs" id="sectionTabs"></div>
+      <div class="editor-form" id="editorForm"></div>
+      <div class="editor-footer">
+        <button class="btn-export" onclick="exportPDF()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Export PDF
+        </button>
+      </div>
+    </aside>
+    <main class="preview-wrap">
+      <div class="preview-topbar">
+        <span class="topbar-label">Live Preview</span>
+        <div class="topbar-actions">
+          <button class="theme-toggle topbar-theme-btn" onclick="toggleTheme()" title="Toggle theme" id="themeToggleBuilder">🌙</button>
+          <button class="topbar-btn" onclick="exportPDF()">Print / Save as PDF</button>
+          <button class="topbar-btn" onclick="toggleEditor()">Toggle Editor</button>
+        </div>
+      </div>
+      <div class="preview-body" id="previewBody">
+        <div class="resume-sheet" id="resumeSheet"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/api.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
